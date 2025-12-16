@@ -1,0 +1,291 @@
+.recipe-page {
+  margin: 80px;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.recipe-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color:#a370ff;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.recipe-card {
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  background: #fff;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.recipe-card h3 {
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+
+.modal-content {
+  background: #fff;
+  max-width: 800px;
+  width: 90%;
+  padding: 2rem;
+  border-radius: 10px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.dark .modal-content{
+    background: #1d1c1c;
+}
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+}
+.dark .modal-close{
+    color: white;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color:black;
+}
+.dark .modal-content h2{
+    color: white;
+} 
+
+.modal-content img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.modal-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: black;
+}
+.dark .modal-content ul{
+    color: white;
+}
+.modal-content h4{
+    color: black;
+}
+.dark .modal-content h4{
+    color: white;
+}
+
+.modal-content p {
+  line-height: 1.5;
+  color: black;
+}
+.dark .modal-content p{
+    color: white;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+
+.recipe-card {
+  position: relative;
+  height: 260px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+
+.recipe-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+
+.recipe-card:hover img {
+  transform: scale(1.08);
+}
+
+
+.recipe-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.recipe-overlay span {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.7);
+}
+
+.search-box {
+  background: #fff;
+  display: flex;
+  align-items: center ;
+  margin-left: 20% !important;
+  margin-right: 20% !important;
+  padding: 10px 15px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  margin-bottom: 50px;
+}
+.dark .search-box{
+    background: #2b2a2a;
+}
+.search-icon {
+  color: #666;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+.dark .search-box input{
+    background: #2b2a2a;
+    color: white;
+}
+
+.search-box button {
+  background:  #a370ff;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-box button:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .recipe-page {
+    margin: 40px 20px;
+    padding: 1.5rem;
+  }
+
+  .search-box {
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+  }
+
+
+  .recipe-card {
+    height: 240px;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-content img {
+    height: 250px;
+  }
+}
+@media (max-width: 480px) {
+  .recipe-page {
+    margin: 20px 10px;
+    padding: 1rem;
+  }
+  .recipe-page h1{
+    margin-top: 10%;
+    font-size: 2rem;
+  }
+  .recipe-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .recipe-card {
+    height: 200px;
+    border-radius: 15px;
+  }
+
+  .recipe-overlay span {
+    font-size: 1rem;
+  }
+
+  .search-box {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100%;
+    padding: 8px 12px;
+  }
+
+  .search-box input {
+    font-size: 0.9rem;
+    padding-top: 10px;
+  }
+
+  .search-box button {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+
+  .modal-content {
+    padding: 1rem;
+  }
+
+  .modal-content img {
+    height: 200px;
+  }
+}

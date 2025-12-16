@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  z-index: 20;
+}
+
+
+nav.dark {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: black;
+  text-decoration: none;
+}
+
+body.dark .logo {
+  color: white !important;
+}
+
+.sign {
+  background-color: #a370ff;
+  border: none;
+  text-decoration: none;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+
+.sign:hover {
+  background-color: #b998f7;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  transition: 0.2s ease;
+}
+
+
+.nav-links a:active,
+.logo:active {
+  color: inherit !important;
+}
+
+
+body.dark .nav-links a {
+  color: white !important;
+}
+
+.nav-right {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 18px;
+}
+
+.icon,
+.theme-btn {
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.theme-btn {
+  background: none;
+  border: none;
+}
+
+body.dark .icon,
+body.dark .theme-btn {
+  color: white !important;
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  width: 25px;
+  height: 3px;
+  background: black;
+}
+
+
+body.dark .menu-icon span {
+  background: white;
+}
+
+
+body.dark {
+  background: #121212;
+  color: white;
+  transition: background 0.3s, color 0.3s;
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 40px;
+    z-index: 15;
+    right: -100%;
+    background: rgba(255, 255, 255, 0.95);
+    height: 100vh;
+    width: 250px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 50px;
+    gap: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: right 0.3s ease-in-out;
+    z-index: 10;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+
+  }
+
+  .nav-links.show {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+
+  .sign {
+    padding: 8px 8px;
+    font-size: 14px;
+  }
+
+  .nav-right {
+    gap: 12px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  nav {
+    padding: 25px 15px;
+    transition: background-color 0.3s ease;
+  }
+
+ 
+  body.dark nav {
+    background-color:transparent; 
+  }
+
+  .logo {
+    font-size: 22px;
+    color: black;
+    transition: color 0.3s ease;
+  }
+
+  body.dark .logo {
+    color: white !important;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    right: -100%; 
+    height: 100vh;
+    width: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    gap: 20px;
+    transition: right 0.3s ease, background-color 0.3s ease;
+    z-index: 999;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  body.dark .nav-links {
+    background-color: #111;
+  }
+
+  .nav-links.show {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+    color: black;
+    display: block;
+    padding: 8px 0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+
+  body.dark .nav-links a {
+    color: white;
+  }
+ 
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .menu-icon span {
+    width: 20px;
+    height: 3px;
+    background: black;
+    transition: background 0.3s ease;
+  }
+
+
+  body.dark .menu-icon span {
+    background: white;
+  }
+
+  .sign {
+    padding: 6px 8px;
+    font-size: 13px;
+    background-color: #a370ff;
+    color: white;
+    border-radius: 5px;
+  }
+
+  .sign:hover {
+    background-color: #b998f7;
+  }
+
+  .nav-right {
+    gap: 10px;
+  }
+}
