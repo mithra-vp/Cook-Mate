@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Breakfast.css";
+import "./breakfast.css";
 import putt from "../assets/putt.jpg";
 import upma from "../assets/upma.jpg";
 import dosa from "../assets/dosa.jpg";
