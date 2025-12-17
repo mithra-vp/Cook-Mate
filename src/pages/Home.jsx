@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import "./home.css";
+import breakfast from "../assets/breakfast.jpg";
+import lunch from "../assets/lunch.jpg";
+import dinner from "../assets/dinner.jpg";
+import dessert from "../assets/deserts.jpg";
 
 const Home = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
   const categories = [
-    { name: "Breakfast", image: "../assets/breakfast.jpg" },
-    { name: "Lunch", image: "../assets/lunch.jpg" },
-    { name: "Dinner", image: "../assets/dinner.jpg" },
-    { name: "Dessert", image: "../assets/deserts.jpg" },
-  ];
+  { name: "Breakfast", image: breakfast },
+  { name: "Lunch", image: lunch },
+  { name: "Dinner", image: dinner },
+  { name: "Dessert", image: dessert },
+];
+
 
 
   const handleSearch = (e) => {
