@@ -8,10 +8,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   const categories = [
-    { name: "Breakfast", image: "/src/assets/breakfast.jpg" },
-    { name: "Lunch", image: "/src/assets/lunch.jpg" },
-    { name: "Dinner", image: "/src/assets/dinner.jpg" },
-    { name: "Dessert", image: "/src/assets/deserts.jpg" },
+    { name: "Breakfast", image: "../assets/breakfast.jpg" },
+    { name: "Lunch", image: "../assets/lunch.jpg" },
+    { name: "Dinner", image: "../assets/dinner.jpg" },
+    { name: "Dessert", image: "../assets/deserts.jpg" },
   ];
 
 
