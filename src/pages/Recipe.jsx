@@ -98,9 +98,7 @@ const Recipe = () => {
                         <p>
                             <strong>Category:</strong> {selectedRecipe.strCategory}
                         </p>
-                        <p>
-                            <strong>Cuisine:</strong> {selectedRecipe.strArea}
-                        </p>
+                       
                         <h4>Ingredients:</h4>
                         <ul>
                             {Array.from({ length: 20 }, (_, i) => i + 1)
