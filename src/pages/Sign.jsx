@@ -15,9 +15,11 @@ const Sign = () => {
   const onSubmit = (data) => {
     console.log("Form Data:", data);
 
-    // Navigate to home after sign in
+    localStorage.setItem("SigninUser", JSON.stringify(data));
+
     navigate("/");
   };
+
 
   return (
     <div className="sign-container">
@@ -33,8 +35,7 @@ const Sign = () => {
             {...register("email", {
               required: "Email is required",
               pattern: {
-                value:
-                  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                value: /^\S+@\S+\.\S+$/,
                 message: "Invalid email address",
               },
             })}
@@ -49,9 +50,20 @@ const Sign = () => {
             placeholder="Enter your password"
             {...register("password", {
               required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters",
+              validate: (value) => {
+                if (!/[A-Za-z]/.test(value)) {
+                  return "Password must include a letter";
+                }
+                if (!/\d/.test(value)) {
+                  return "Password must include a number";
+                }
+                if (!/[@$!%*?&]/.test(value)) {
+                  return "Password must include a special character";
+                }
+                if (value.length < 6) {
+                  return "Password must be at least 6 characters";
+                }
+                return true;
               },
             })}
           />

@@ -29,7 +29,7 @@
     background-color: #202020;
 }
 .error-message {
-  color: red;
+  /* color: red; */
   font-size: 0.85rem;
   margin-top: -15px;
   margin-bottom: 15px;
@@ -63,11 +63,13 @@
   margin-bottom: 20px;
   border-radius: 10px;
   border: 1px solid #ccc;
+  color: black !important;
   outline: none;
   font-size: 1rem;
 }
 .dark .sign-box input{
     background-color: #202020;
+    color: white;
 }
 
 .sign-box button {
