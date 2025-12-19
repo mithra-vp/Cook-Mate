@@ -11,20 +11,15 @@ const Home = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
+  const [category, setCategory] = useState("");
+
+
   const categories = [
-  { name: "Breakfast", image: breakfast },
-  { name: "Lunch", image: lunch },
-  { name: "Dinner", image: dinner },
-  { name: "Dessert", image: dessert },
-];
-
-
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (!query.trim()) return;
-    navigate(`/search?query=${query}`);
-  };
+    { name: "Breakfast", image: breakfast },
+    { name: "Lunch", image: lunch },
+    { name: "Dinner", image: dinner },
+    { name: "Dessert", image: dessert },
+  ];
 
   return (
 
@@ -70,17 +65,6 @@ const Home = () => {
         <div className="hero-content">
           <h1>Find Your Next Favorite Recipe</h1>
           <p>Simple, delicious recipes for every day</p>
-
-          <form className="search-box" onSubmit={handleSearch}>
-            <FiSearch className="search-icon" />
-            <input
-              type="text"
-              placeholder="Search recipes or ingredients..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <button type="submit">Search</button>
-          </form>
         </div>
       </section>
 

@@ -1,0 +1,141 @@
+.signup-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/src/assets/search2.jpg") center/cover no-repeat;
+
+}
+
+/* Signup form only */
+.signup-container .signup-form {
+  background: #fff;
+  padding: 30px;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dark .signup-container .signup-form {
+  background-color: rgb(29, 28, 28);
+}
+
+.signup-container .signup-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.signup-container .form-group {
+  margin-bottom: 15px;
+}
+
+.signup-container .form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.dark .signup-container .form-group input {
+  background-color: #222121;
+  color: white;
+}
+
+.signup-container .error {
+  color: #a370ff;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.signup-container button {
+  width: 100%;
+  padding: 10px;
+  background: #a370ff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signup-container button:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+.signup-form h2 {
+  color: black;
+}
+
+.dark .signup-form h2 {
+  color: white;
+}
+
+.body .dark .signup-form {
+  background-color: rgb(29, 28, 28);
+}
+
+
+@media (max-width: 768px) {
+  .signup-container {
+    padding: 20px;
+  }
+
+  .signup-container .signup-form {
+    width: 100%;
+    max-width: 420px;
+    padding: 25px;
+  }
+
+  .signup-container .signup-form h2 {
+    font-size: 22px;
+  }
+
+  .signup-container .form-group input {
+    padding: 9px;
+    font-size: 15px;
+  }
+
+  .signup-container button {
+    padding: 9px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 15px;
+  }
+
+  .signup-container .signup-form {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .signup-container .signup-form h2 {
+    font-size: 20px;
+  }
+
+  .signup-container .form-group {
+    margin-bottom: 12px;
+  }
+
+  .signup-container .form-group input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .signup-container .error {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .signup-container button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}

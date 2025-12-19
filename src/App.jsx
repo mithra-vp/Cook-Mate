@@ -6,6 +6,7 @@ import HeroBanner from "./shared/HeroBanner";
 import Recipe from "./pages/Recipe";
 import Category from "./pages/Category";
 import Sign from "./pages/Sign";
+import Signup from "./pages/Signup";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         {/* OPTIONAL */}
         <Route path="/home" element={<Navigate to="/" />} />
         <Route path="/sign" element={<Sign />} /> 
+        <Route path="/signup" element={<Signup />} />
         <Route path="/category/:name" element={<Category />} />
         <Route path="/recipes" element={<Recipe />} />
       </Routes>

@@ -44,7 +44,9 @@
   margin-bottom: 30px;
   color: #555;
 }
-
+.sign-box .error-message{
+  color: #a370ff;
+}
 .sign-box form {
   display: flex;
   flex-direction: column;
