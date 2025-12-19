@@ -44,18 +44,23 @@ body.dark .logo {
   color: white !important;
 }
 
-.sign {
-  background-color: #a370ff;
+.logout-icon {
+  background: none;
   border: none;
-  text-decoration: none;
-  color: white;
-  padding: 10px 10px;
-  border-radius: 5px;
+  cursor: pointer;
+  color:black;
+  display: flex;
+  align-items: center;
 }
 
-.sign:hover {
-  background-color: #b998f7;
+.logout-icon:hover {
+  color: #a855f7;
 }
+
+.dark .logout-icon {
+  color: white;
+}
+
 
 .nav-links {
   display: flex;

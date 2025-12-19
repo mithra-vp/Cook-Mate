@@ -13,19 +13,26 @@ const Sign = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("Form Data:", data);
+    const user = JSON.parse(localStorage.getItem("signupUser"));
 
-    localStorage.setItem("SigninUser", JSON.stringify(data));
-
-    navigate("/");
+    if (
+      user?.email === data.email &&
+      user?.password === data.password
+    ) {
+      localStorage.setItem("isLoggedIn", "true");
+      navigate("/home"); // 👈 go to home
+    } else {
+      alert("Are you new here? please sign up first!");
+    }
   };
+
 
 
   return (
     <div className="sign-container">
       <div className="sign-box">
         <h2>Sign In</h2>
-        <p>Sign in to explore more tastes!</p>
+        <p>Sign in to taste more of what you love</p>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>Email</label>

@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "./shared/Navbar";
 import Footer from "./shared/Footer";
 import Home from "./pages/Home";
@@ -9,31 +9,61 @@ import Sign from "./pages/Sign";
 import Signup from "./pages/Signup";
 
 function App() {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const location = useLocation();
+
+  // hide navbar & footer on auth pages
+  const hideNavbar =
+    location.pathname === "/sign" || location.pathname === "/signup";
+
   return (
     <>
-      <Navbar />
-      {/* <Sign/> */}
+      {!hideNavbar && <Navbar />}
+
       <Routes>
-        {/* DEFAULT ROUTE */}
+        {/* OPEN APP → SIGN IN FIRST */}
+        <Route path="/" element={<Navigate to="/sign" />} />
+
+        {/* SIGN IN */}
         <Route
-          path="/"
+          path="/sign"
+          element={isLoggedIn ? <Navigate to="/home" /> : <Sign />}
+        />
+
+        {/* SIGN UP */}
+        <Route
+          path="/signup"
+          element={isLoggedIn ? <Navigate to="/home" /> : <Signup />}
+        />
+
+        {/* HOME (PROTECTED) */}
+        <Route
+          path="/home"
           element={
-            <>
-              <HeroBanner />
-              <Home />
-            </>
+            isLoggedIn ? (
+              <>
+                <HeroBanner />
+                <Home />
+              </>
+            ) : (
+              <Navigate to="/sign" />
+            )
           }
         />
 
-        {/* OPTIONAL */}
-        <Route path="/home" element={<Navigate to="/" />} />
-        <Route path="/sign" element={<Sign />} /> 
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/category/:name" element={<Category />} />
-        <Route path="/recipes" element={<Recipe />} />
+        {/* PROTECTED ROUTES */}
+        <Route
+          path="/recipes"
+          element={isLoggedIn ? <Recipe /> : <Navigate to="/sign" />}
+        />
+
+        <Route
+          path="/category/:name"
+          element={isLoggedIn ? <Category /> : <Navigate to="/sign" />}
+        />
       </Routes>
 
-      <Footer />
+      {!hideNavbar && <Footer />}
     </>
   );
 }

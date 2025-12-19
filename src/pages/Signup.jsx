@@ -23,14 +23,14 @@ const Signup = () => {
 
         console.log("Signup Data:", userData);
 
-        alert("Signup Successful!");
-        navigate("/");
+        alert("Signup successful! Please sign in.");
+        navigate("/sign");
     };
 
     return (
         <div className="signup-container">
             <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
-                <h2>Create Account</h2>
+                <h2>Sign Up</h2>
 
                 <div className="form-group">
                     <input

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { PiHamburgerLight } from "react-icons/pi";
-import { FiSun, FiMoon } from "react-icons/fi";
+import { FiSun, FiMoon, FiLogOut } from "react-icons/fi";
 import { ThemeContext } from "./ThemeContext";
 import './nav.css';
 import { HashLink } from 'react-router-hash-link';
@@ -13,6 +13,17 @@ const Navbar = () => {
   const scrollWithDuration = (el) => {
     el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  const isLoggedIn = !!localStorage.getItem("signupUser");
+
+  const handleLogout = () => {
+    alert("You have been logged out successfully!");
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "/sign";
+  };
+
+
+
 
   return (
     <nav className={darkMode ? "dark" : ""}>
@@ -36,7 +47,15 @@ const Navbar = () => {
         <button className="theme-btn" onClick={toggleTheme}>
           {darkMode ? <FiMoon /> : <FiSun />}
         </button>
-        <Link to="/sign" className='sign' onClick={() => setMenuOpen(false)}>Sign in</Link>
+        {isLoggedIn && (
+          <button
+            className="logout-icon"
+            onClick={handleLogout}
+            title="Logout"
+          >
+            <FiLogOut size={22} />
+          </button>
+        )}
 
         <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
           <span></span><span></span><span></span>
