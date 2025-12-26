@@ -21,22 +21,18 @@ function App() {
       {!hideNavbar && <Navbar />}
 
       <Routes>
-        {/* OPEN APP → SIGN IN FIRST */}
         <Route path="/" element={<Navigate to="/sign" />} />
 
-        {/* SIGN IN */}
         <Route
           path="/sign"
           element={isLoggedIn ? <Navigate to="/home" /> : <Sign />}
         />
 
-        {/* SIGN UP */}
         <Route
           path="/signup"
           element={isLoggedIn ? <Navigate to="/home" /> : <Signup />}
         />
 
-        {/* HOME (PROTECTED) */}
         <Route
           path="/home"
           element={
@@ -51,7 +47,6 @@ function App() {
           }
         />
 
-        {/* PROTECTED ROUTES */}
         <Route
           path="/recipes"
           element={isLoggedIn ? <Recipe /> : <Navigate to="/sign" />}

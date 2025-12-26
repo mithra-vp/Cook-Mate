@@ -20,7 +20,7 @@ const Sign = () => {
       user?.password === data.password
     ) {
       localStorage.setItem("isLoggedIn", "true");
-      navigate("/home"); // 👈 go to home
+      navigate("/home");
     } else {
       alert("Are you new here? please sign up first!");
     }

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import { PiHamburgerLight } from "react-icons/pi";
 import { FiSun, FiMoon, FiLogOut } from "react-icons/fi";
 import { ThemeContext } from "./ThemeContext";
@@ -40,7 +40,7 @@ const Navbar = () => {
         <li><HashLink smooth to="/home#newlaunch" scroll={scrollWithDuration} onClick={() => setMenuOpen(false)}> NewLaunch</HashLink></li>
         <li><NavLink to="/recipes" onClick={() => setMenuOpen(false)}>Recipes</NavLink></li>
 
-        {/* scroll using hash link   === npm install react-router-hash-link==== */}
+        {/* scroll using hash link   (install cheyyann) === npm install react-router-hash-link==== */}
       </ul>
 
       <div className="nav-right">

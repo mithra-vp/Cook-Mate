@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { FiSearch } from "react-icons/fi";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./home.css";
 import breakfast from "../assets/breakfast.jpg";
 import lunch from "../assets/lunch.jpg";
@@ -8,11 +7,6 @@ import dinner from "../assets/dinner.jpg";
 import dessert from "../assets/deserts.jpg";
 
 const Home = () => {
-  const [query, setQuery] = useState("");
-  const navigate = useNavigate();
-
-  const [category, setCategory] = useState("");
-
 
   const categories = [
     { name: "Breakfast", image: breakfast },
@@ -25,7 +19,7 @@ const Home = () => {
 
     <div>
 
-      {/* ABOUT */}
+      {/* about */}
       <section id="about" className="about">
         <div className="about-container">
           <h1 className="about-title">Welcome to CookMate</h1>
@@ -59,7 +53,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* HOME */}
+      {/* homee */}
       <section id="home" className="hero">
         <div className="hero-overlay"></div>
         <div className="hero-content">
@@ -89,7 +83,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* explore recipe button */}
       <section className="cta">
         <h3>Cook Smarter Eat Better</h3>
         <p>Discover new recipes and try your favorites.</p>
