@@ -1,31 +1,45 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Breakfast from "./Breakfast"; 
-import Lunch from "./Lunch";
-import Dinner from "./Dinner";
-import Dessert from "./Dessert";
-
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import api from "../api/axios"
+import "./recipe.css";
 
 const Category = () => {
   const { name } = useParams();
+  const [recipes, setRecipes] = useState([]);
+  const navigate = useNavigate();
 
-  if (name === "breakfast") {
-    return <Breakfast />;
-  }
-   if (name === "lunch") {
-    return <Lunch/>;
-  }
-   if (name === "dinner") {
-    return <Dinner/>;
-  }
-  if (name === "dessert") {
-    return <Dessert/>;
-  }
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+
+        const categoryName = name.charAt(0).toUpperCase() + name.slice(1);
+
+        const res = await api.get(`/recipes?category=${categoryName}`);
+        setRecipes(res.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchRecipes();
+  }, [name]);
 
   return (
-    <h2 style={{ textAlign: "center", marginTop: "50px" }}>
-      Recipes coming soon...
-    </h2>
+    <div className="recipe-page">
+      <h2>{name} Recipes</h2>
+
+      {recipes.length === 0 && <p style={{ textAlign: 'center' }}>No recipes found for this category.</p>}
+
+      <div className="recipe-grid">
+        {recipes.map((recipe) => (
+          <div key={recipe.id} className="recipe-card">
+            <img src={recipe.image} alt={recipe.title} />
+            <div className="recipe-overlay">
+              <span>{recipe.title}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

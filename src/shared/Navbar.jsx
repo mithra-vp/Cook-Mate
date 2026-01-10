@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import {  NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { PiHamburgerLight } from "react-icons/pi";
 import { FiSun, FiMoon, FiLogOut } from "react-icons/fi";
 import { ThemeContext } from "./ThemeContext";

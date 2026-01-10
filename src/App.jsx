@@ -7,14 +7,18 @@ import Recipe from "./pages/Recipe";
 import Category from "./pages/Category";
 import Sign from "./pages/Sign";
 import Signup from "./pages/Signup";
+import AddRecipe from "./pages/admin/AddRecipe";
+import EditRecipe from "./pages/admin/EditRecipe";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 function App() {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   const location = useLocation();
 
-  // hide navbar & footer on auth pages
   const hideNavbar =
-    location.pathname === "/sign" || location.pathname === "/signup";
+    location.pathname === "/sign" ||
+    location.pathname === "/signup" ||
+    location.pathname.startsWith("/admin");
 
   return (
     <>
@@ -55,6 +59,19 @@ function App() {
         <Route
           path="/category/:name"
           element={isLoggedIn ? <Category /> : <Navigate to="/sign" />}
+        />
+
+        <Route
+          path="/admin"
+          element={isLoggedIn ? <AdminDashboard /> : <Navigate to="/sign" />}
+        />
+        <Route
+          path="/admin/add"
+          element={isLoggedIn ? <AddRecipe /> : <Navigate to="/sign" />}
+        />
+        <Route
+          path="/admin/edit/:id"
+          element={isLoggedIn ? <EditRecipe /> : <Navigate to="/sign" />}
         />
       </Routes>
 

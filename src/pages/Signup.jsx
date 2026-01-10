@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import api from "../api/axios";
 import "./up.css";
 
 const Signup = () => {
@@ -12,19 +13,24 @@ const Signup = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {
-        const userData = {
-            name: data.name,
-            email: data.email,
-            password: data.password,
-        };
+    const onSubmit = async (data) => {
+        try {
+            const userData = {
+                name: data.name,
+                email: data.email,
+                password: data.password,
+                role: data.role,
+            };
 
-        localStorage.setItem("signupUser", JSON.stringify(userData));
+            await api.post("/users", userData);
+            console.log("Signup Data:", userData);
 
-        console.log("Signup Data:", userData);
-
-        alert("Signup successful! Please sign in.");
-        navigate("/sign");
+            alert("Signup successful! Please sign in.");
+            navigate("/sign");
+        } catch (error) {
+            console.error("Signup failed:", error);
+            alert("Signup failed! Please try again.");
+        }
     };
 
     return (
@@ -60,6 +66,16 @@ const Signup = () => {
                         })}
                     />
                     {errors.email && <span className="error">{errors.email.message}</span>}
+                </div>
+
+                <div className="form-group">
+                    <select
+                        {...register("role", { required: "Role is required" })}
+                    >
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    {errors.role && <span className="error">{errors.role.message}</span>}
                 </div>
 
                 <div className="form-group">

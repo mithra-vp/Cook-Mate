@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import api from "../api/axios";
 import "./sign.css";
 
 const Sign = () => {
@@ -12,21 +13,34 @@ const Sign = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    const user = JSON.parse(localStorage.getItem("signupUser"));
+  const onSubmit = async (data) => {
+    try {
+      const res = await api.get("/users", {
+        params: {
+          email: data.email,
+          password: data.password,
+        },
+      });
+      const users = res.data;
 
-    if (
-      user?.email === data.email &&
-      user?.password === data.password
-    ) {
-      localStorage.setItem("isLoggedIn", "true");
-      navigate("/home");
-    } else {
-      alert("Are you new here? please sign up first!");
+      if (users.length > 0) {
+        const user = users[0];
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("user", JSON.stringify(user));
+
+        if (user.role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/home");
+        }
+      } else {
+        alert("Invalid email or password!");
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+      alert("Something went wrong!");
     }
   };
-
-
 
   return (
     <div className="sign-container">

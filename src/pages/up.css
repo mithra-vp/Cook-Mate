@@ -38,6 +38,7 @@
   border: 1px solid #ccc;
 }
 
+
 .dark .signup-container .form-group input {
   background-color: #222121;
   color: white;
@@ -72,13 +73,39 @@
 }
 
 .dark .signup-form h2 {
-  color:#a370ff;
+  color: #a370ff;
 }
 
 .body .dark .signup-form {
   background-color: rgb(29, 28, 28);
 }
 
+.signup-container .form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.dark .signup-container .form-group select {
+  background-color: #222121;
+  color: white;
+  border: 1px solid #444;
+}
+
+.signup-container .form-group select:focus ,.signup-container .form-group input:focus {
+  outline: none;
+  border-color: #a370ff;
+  box-shadow: 0 0 0 1px rgba(163, 112, 255, 0.4);
+}
+
+/* Disabled option (placeholder) */
+.signup-container .form-group select option:disabled {
+  color: #999;
+}
 
 @media (max-width: 768px) {
   .signup-container {
@@ -89,6 +116,11 @@
     width: 100%;
     max-width: 420px;
     padding: 25px;
+  }
+
+  .signup-container .form-group select {
+    padding: 9px;
+    font-size: 15px;
   }
 
   .signup-container .signup-form h2 {
@@ -109,6 +141,11 @@
 @media (max-width: 480px) {
   .signup-container {
     padding: 15px;
+  }
+
+  .signup-container .form-group select {
+    padding: 8px;
+    font-size: 14px;
   }
 
   .signup-container .signup-form {
